@@ -1,0 +1,15 @@
+{
+  "name": "Crediok/ScBase",
+  "description": "Integração com o Sistema Crediok",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "wladson.lima",
+      "email": "wladson.lima@crediok.com.br"
+    }
+  ],
+  "require": {
+    
+  }
+}
