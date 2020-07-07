@@ -1,9 +1,10 @@
 {
-  "name": "wladsonlima/scbase",
+  "name": "crediok/scbase",
   "description": "Integração com o Sistema Crediok",
   "type": "library",
   "minimum-stability": "stable",
   "license": "proprietary",
+  "version": "1.0",
   "authors": [
     {
       "name": "wladson.lima",
@@ -12,7 +13,7 @@
   ],
   "require": {
     "php": "^7.4",
-    "guzzlehttp/guzzle": "^7.0"
+    "guzzlehttp/guzzle": "^6.5"
   },
   "autoload": {
     "psr-4": {
