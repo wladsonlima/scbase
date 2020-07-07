@@ -29,6 +29,10 @@ class TreeService extends BaseService
         );
         $data = $this->normalize($res);
 
+        if(is_array($data)){
+            return null;
+        }
+
         return $data->data->treeResult;
     }
 }

@@ -33,6 +33,7 @@ abstract class BaseService
     public function normalize(Response $response)
     {
         $res =  $response->getBody()->getContents();
+
         if($res != ""){
             return json_decode($res);
         }
