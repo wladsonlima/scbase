@@ -3,7 +3,6 @@
 namespace Crediok\Scbase\Services;
 
 use Crediok\Scbase\Entity\TreeResultEntity;
-use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\RequestOptions;
 
 class TreeService extends BaseService
@@ -26,7 +25,7 @@ class TreeService extends BaseService
                         'Authorization' => "Bearer {$login->token}"
                     ],
                 RequestOptions::JSON => $treeResult->jsonSerialize()
-            ],
+            ]
         );
         return $this->normalize($res)->data->treeResult;
     }

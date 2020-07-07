@@ -11,9 +11,7 @@ use function GuzzleHttp\json_decode;
 
 abstract class BaseService
 {
-
-
-    protected Client $httpClient;
+    protected  $httpClient;
 
     public function __construct()
     {
@@ -39,8 +37,5 @@ abstract class BaseService
             return json_decode($res);
         }
         return [];
-
-
-
     }
 }

@@ -6,8 +6,8 @@ use DateTime;
 
 class TreeResultEntity implements \JsonSerializable
 {
-    private string $Cpf;
-    private string $Datetime;
+    private  $Cpf;
+    private  $Datetime;
 
     /**
      * TreeResultEntity constructor.
