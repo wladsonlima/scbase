@@ -2,9 +2,7 @@
   "name": "wladsonlima/scbase",
   "description": "Integração com o Sistema Crediok",
   "type": "library",
-  "minimum-stability": "stable",
   "license": "proprietary",
-  "version": "1.0",
   "authors": [
     {
       "name": "wladson.lima",
