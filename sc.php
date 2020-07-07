@@ -10,4 +10,5 @@ $_ENV["SCBASE_PASSWORD"] = "";
 
 $Tree = new TreeService();
 $res = $Tree->getTreeResultData("", '');
+$res;
 

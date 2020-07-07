@@ -27,6 +27,8 @@ class TreeService extends BaseService
                 RequestOptions::JSON => $treeResult->jsonSerialize()
             ]
         );
-        return $this->normalize($res)->data->treeResult;
+        $data = $this->normalize($res);
+
+        return $data->data->treeResult;
     }
 }
