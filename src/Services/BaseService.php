@@ -4,7 +4,6 @@ namespace Crediok\Scbase\Services;
 
 use Crediok\Scbase\Entity\LoginEntity;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\RequestOptions;
 
@@ -19,7 +18,7 @@ abstract class BaseService
     public function __construct()
     {
         $this->httpClient = new Client([
-            'base_uri' => "https://ok-api.crediok.com.br",
+            'base_uri' => $_ENV["SCBASE_URL"],
             'timeout' => 2.0,
         ]);
     }
@@ -27,18 +26,21 @@ abstract class BaseService
 
     public function login()
     {
-        $loginEntity = new LoginEntity('marcos', 'Xu@$gDKi9Vn%Jt3I');
+        $loginEntity = new LoginEntity($_ENV["SCBASE_USERNAME"], $_ENV["SCBASE_PASSWORD"]);
         $client = $this->httpClient;
-        try {
-            return $this->normalize($client->post('/auth/login', [RequestOptions::JSON => $loginEntity->jsonSerialize()]));
-        } catch (GuzzleException $e) {
-            return $e->getMessage();
-        }
+        return $this->normalize($client->post('/auth/login', [RequestOptions::JSON => $loginEntity->jsonSerialize()]));
     }
 
 
     public function normalize(Response $response)
     {
-        return json_decode($response->getBody()->getContents());
+        $res =  $response->getBody()->getContents();
+        if($res != ""){
+            return json_decode($res);
+        }
+        return [];
+
+
+
     }
 }

@@ -11,22 +11,23 @@ class TreeService extends BaseService
     public function getTreeResultData(string $cpf, $datetime)
     {
         $login = $this->login();
+
+        if (!isset($login->token)) {
+            $login = $this->login();
+        }
+
         $treeResult = new TreeResultEntity($cpf, $datetime);
 
-        try {
-            $res = $this->httpClient->post(
-                '/tree/client/data',
-                [
-                    'headers' =>
-                        [
-                            'Authorization' => "Bearer {$login->token}"
-                        ],
-                    RequestOptions::JSON => $treeResult->jsonSerialize()
-                ],
-            );
-            return $this->normalize($res)->data->treeResult;
-        } catch (GuzzleException $e) {
-            $e->getMessage();
-        }
+        $res = $this->httpClient->post(
+            '/tree/client/data',
+            [
+                'headers' =>
+                    [
+                        'Authorization' => "Bearer {$login->token}"
+                    ],
+                RequestOptions::JSON => $treeResult->jsonSerialize()
+            ],
+        );
+        return $this->normalize($res)->data->treeResult;
     }
 }
